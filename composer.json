@@ -1,0 +1,22 @@
+{
+    "name": "allenqin/mz-aliyun-php-sdk",
+    "description": "aliyun OSS openapi",
+    "authors": [
+        {
+            "name": "allenqin",
+            "email": "allenqinhai@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "imm\\": "src/imm",
+            "sts\\" : "src/Sts"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {}
+    }
+}
+
