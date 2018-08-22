@@ -19,56 +19,63 @@
  */
 namespace imm\Request\V20170906;
 
-class DeleteFaceByIdRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeleteFaceByIdRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeleteFaceById", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $setId;
+    private $srcUri;
+    private $faceIds;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeleteFaceById", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $setId;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $srcUri;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	private  $faceIds;
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function getSetId() {
-		return $this->setId;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
+    public function getFaceIds()
+    {
+        return $this->faceIds;
+    }
 
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
+    public function setFaceIds($faceIds)
+    {
+        $this->faceIds = $faceIds;
+        $this->queryParameters["FaceIds"] = $faceIds;
+    }
 
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
-
-	public function getFaceIds() {
-		return $this->faceIds;
-	}
-
-	public function setFaceIds($faceIds) {
-		$this->faceIds = $faceIds;
-		$this->queryParameters["FaceIds"]=$faceIds;
-	}
-	
 }

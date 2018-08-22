@@ -19,45 +19,51 @@
  */
 namespace imm\Request\V20170906;
 
-class FaceCompareRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class FaceCompareRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "FaceCompare", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $srcUriB;
+    private $srcUriA;
+    private $project;
 
-	private  $srcUriB;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "FaceCompare", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $srcUriA;
+    public function getSrcUriB()
+    {
+        return $this->srcUriB;
+    }
 
-	private  $project;
+    public function setSrcUriB($srcUriB)
+    {
+        $this->srcUriB = $srcUriB;
+        $this->queryParameters["SrcUriB"] = $srcUriB;
+    }
 
-	public function getSrcUriB() {
-		return $this->srcUriB;
-	}
+    public function getSrcUriA()
+    {
+        return $this->srcUriA;
+    }
 
-	public function setSrcUriB($srcUriB) {
-		$this->srcUriB = $srcUriB;
-		$this->queryParameters["SrcUriB"]=$srcUriB;
-	}
+    public function setSrcUriA($srcUriA)
+    {
+        $this->srcUriA = $srcUriA;
+        $this->queryParameters["SrcUriA"] = $srcUriA;
+    }
 
-	public function getSrcUriA() {
-		return $this->srcUriA;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function setSrcUriA($srcUriA) {
-		$this->srcUriA = $srcUriA;
-		$this->queryParameters["SrcUriA"]=$srcUriA;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
-
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-	
 }

@@ -19,78 +19,87 @@
  */
 namespace imm\Request\V20170906;
 
-class FaceSearchRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class FaceSearchRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "FaceSearch", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $resultNum;
+    private $project;
+    private $searchThresholdLevel;
+    private $srcUri;
+    private $isThreshold;
+    private $groupName;
 
-	private  $resultNum;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "FaceSearch", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getResultNum()
+    {
+        return $this->resultNum;
+    }
 
-	private  $searchThresholdLevel;
+    public function setResultNum($resultNum)
+    {
+        $this->resultNum = $resultNum;
+        $this->queryParameters["ResultNum"] = $resultNum;
+    }
 
-	private  $srcUri;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $isThreshold;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	private  $groupName;
+    public function getSearchThresholdLevel()
+    {
+        return $this->searchThresholdLevel;
+    }
 
-	public function getResultNum() {
-		return $this->resultNum;
-	}
+    public function setSearchThresholdLevel($searchThresholdLevel)
+    {
+        $this->searchThresholdLevel = $searchThresholdLevel;
+        $this->queryParameters["SearchThresholdLevel"] = $searchThresholdLevel;
+    }
 
-	public function setResultNum($resultNum) {
-		$this->resultNum = $resultNum;
-		$this->queryParameters["ResultNum"]=$resultNum;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getIsThreshold()
+    {
+        return $this->isThreshold;
+    }
 
-	public function getSearchThresholdLevel() {
-		return $this->searchThresholdLevel;
-	}
+    public function setIsThreshold($isThreshold)
+    {
+        $this->isThreshold = $isThreshold;
+        $this->queryParameters["IsThreshold"] = $isThreshold;
+    }
 
-	public function setSearchThresholdLevel($searchThresholdLevel) {
-		$this->searchThresholdLevel = $searchThresholdLevel;
-		$this->queryParameters["SearchThresholdLevel"]=$searchThresholdLevel;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
-
-	public function getIsThreshold() {
-		return $this->isThreshold;
-	}
-
-	public function setIsThreshold($isThreshold) {
-		$this->isThreshold = $isThreshold;
-		$this->queryParameters["IsThreshold"]=$isThreshold;
-	}
-
-	public function getGroupName() {
-		return $this->groupName;
-	}
-
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
-	
 }

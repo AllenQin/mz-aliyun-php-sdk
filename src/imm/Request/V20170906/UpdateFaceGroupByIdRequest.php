@@ -19,56 +19,63 @@
  */
 namespace imm\Request\V20170906;
 
-class UpdateFaceGroupByIdRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class UpdateFaceGroupByIdRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "UpdateFaceGroupById", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $setId;
+    private $newGroupId;
+    private $faceIds;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "UpdateFaceGroupById", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $setId;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $newGroupId;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	private  $faceIds;
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getNewGroupId()
+    {
+        return $this->newGroupId;
+    }
 
-	public function getSetId() {
-		return $this->setId;
-	}
+    public function setNewGroupId($newGroupId)
+    {
+        $this->newGroupId = $newGroupId;
+        $this->queryParameters["NewGroupId"] = $newGroupId;
+    }
 
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
+    public function getFaceIds()
+    {
+        return $this->faceIds;
+    }
 
-	public function getNewGroupId() {
-		return $this->newGroupId;
-	}
+    public function setFaceIds($faceIds)
+    {
+        $this->faceIds = $faceIds;
+        $this->queryParameters["FaceIds"] = $faceIds;
+    }
 
-	public function setNewGroupId($newGroupId) {
-		$this->newGroupId = $newGroupId;
-		$this->queryParameters["NewGroupId"]=$newGroupId;
-	}
-
-	public function getFaceIds() {
-		return $this->faceIds;
-	}
-
-	public function setFaceIds($faceIds) {
-		$this->faceIds = $faceIds;
-		$this->queryParameters["FaceIds"]=$faceIds;
-	}
-	
 }

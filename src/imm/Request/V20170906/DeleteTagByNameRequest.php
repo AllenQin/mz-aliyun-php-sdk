@@ -19,56 +19,63 @@
  */
 namespace imm\Request\V20170906;
 
-class DeleteTagByNameRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeleteTagByNameRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeleteTagByName", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $tagName;
+    private $project;
+    private $setId;
+    private $srcUri;
 
-	private  $tagName;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeleteTagByName", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getTagName()
+    {
+        return $this->tagName;
+    }
 
-	private  $setId;
+    public function setTagName($tagName)
+    {
+        $this->tagName = $tagName;
+        $this->queryParameters["TagName"] = $tagName;
+    }
 
-	private  $srcUri;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getTagName() {
-		return $this->tagName;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setTagName($tagName) {
-		$this->tagName = $tagName;
-		$this->queryParameters["TagName"]=$tagName;
-	}
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function getSetId() {
-		return $this->setId;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
-
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
-
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
-	
 }

@@ -19,177 +19,195 @@
  */
 namespace imm\Request\V20170906;
 
-class ConvertOfficeFormatRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class ConvertOfficeFormatRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "ConvertOfficeFormat", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $imageSpec;
+    private $srcType;
+    private $modelId;
+    private $project;
+    private $externalID;
+    private $maxSheetRow;
+    private $maxSheetCount;
+    private $endPage;
+    private $sheetOnePage;
+    private $password;
+    private $startPage;
+    private $maxSheetCol;
+    private $tgtType;
+    private $srcUri;
+    private $tgtUri;
 
-	private  $imageSpec;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "ConvertOfficeFormat", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $srcType;
+    public function getImageSpec()
+    {
+        return $this->imageSpec;
+    }
 
-	private  $modelId;
+    public function setImageSpec($imageSpec)
+    {
+        $this->imageSpec = $imageSpec;
+        $this->queryParameters["ImageSpec"] = $imageSpec;
+    }
 
-	private  $project;
+    public function getSrcType()
+    {
+        return $this->srcType;
+    }
 
-	private  $externalID;
+    public function setSrcType($srcType)
+    {
+        $this->srcType = $srcType;
+        $this->queryParameters["SrcType"] = $srcType;
+    }
 
-	private  $maxSheetRow;
+    public function getModelId()
+    {
+        return $this->modelId;
+    }
 
-	private  $maxSheetCount;
+    public function setModelId($modelId)
+    {
+        $this->modelId = $modelId;
+        $this->queryParameters["ModelId"] = $modelId;
+    }
 
-	private  $endPage;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $sheetOnePage;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	private  $password;
+    public function getExternalID()
+    {
+        return $this->externalID;
+    }
 
-	private  $startPage;
+    public function setExternalID($externalID)
+    {
+        $this->externalID = $externalID;
+        $this->queryParameters["ExternalID"] = $externalID;
+    }
 
-	private  $maxSheetCol;
+    public function getMaxSheetRow()
+    {
+        return $this->maxSheetRow;
+    }
 
-	private  $tgtType;
+    public function setMaxSheetRow($maxSheetRow)
+    {
+        $this->maxSheetRow = $maxSheetRow;
+        $this->queryParameters["MaxSheetRow"] = $maxSheetRow;
+    }
 
-	private  $srcUri;
+    public function getMaxSheetCount()
+    {
+        return $this->maxSheetCount;
+    }
 
-	private  $tgtUri;
+    public function setMaxSheetCount($maxSheetCount)
+    {
+        $this->maxSheetCount = $maxSheetCount;
+        $this->queryParameters["MaxSheetCount"] = $maxSheetCount;
+    }
 
-	public function getImageSpec() {
-		return $this->imageSpec;
-	}
+    public function getEndPage()
+    {
+        return $this->endPage;
+    }
 
-	public function setImageSpec($imageSpec) {
-		$this->imageSpec = $imageSpec;
-		$this->queryParameters["ImageSpec"]=$imageSpec;
-	}
+    public function setEndPage($endPage)
+    {
+        $this->endPage = $endPage;
+        $this->queryParameters["EndPage"] = $endPage;
+    }
 
-	public function getSrcType() {
-		return $this->srcType;
-	}
+    public function getSheetOnePage()
+    {
+        return $this->sheetOnePage;
+    }
 
-	public function setSrcType($srcType) {
-		$this->srcType = $srcType;
-		$this->queryParameters["SrcType"]=$srcType;
-	}
+    public function setSheetOnePage($sheetOnePage)
+    {
+        $this->sheetOnePage = $sheetOnePage;
+        $this->queryParameters["SheetOnePage"] = $sheetOnePage;
+    }
 
-	public function getModelId() {
-		return $this->modelId;
-	}
+    public function getPassword()
+    {
+        return $this->password;
+    }
 
-	public function setModelId($modelId) {
-		$this->modelId = $modelId;
-		$this->queryParameters["ModelId"]=$modelId;
-	}
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        $this->queryParameters["Password"] = $password;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getStartPage()
+    {
+        return $this->startPage;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setStartPage($startPage)
+    {
+        $this->startPage = $startPage;
+        $this->queryParameters["StartPage"] = $startPage;
+    }
 
-	public function getExternalID() {
-		return $this->externalID;
-	}
+    public function getMaxSheetCol()
+    {
+        return $this->maxSheetCol;
+    }
 
-	public function setExternalID($externalID) {
-		$this->externalID = $externalID;
-		$this->queryParameters["ExternalID"]=$externalID;
-	}
+    public function setMaxSheetCol($maxSheetCol)
+    {
+        $this->maxSheetCol = $maxSheetCol;
+        $this->queryParameters["MaxSheetCol"] = $maxSheetCol;
+    }
 
-	public function getMaxSheetRow() {
-		return $this->maxSheetRow;
-	}
+    public function getTgtType()
+    {
+        return $this->tgtType;
+    }
 
-	public function setMaxSheetRow($maxSheetRow) {
-		$this->maxSheetRow = $maxSheetRow;
-		$this->queryParameters["MaxSheetRow"]=$maxSheetRow;
-	}
+    public function setTgtType($tgtType)
+    {
+        $this->tgtType = $tgtType;
+        $this->queryParameters["TgtType"] = $tgtType;
+    }
 
-	public function getMaxSheetCount() {
-		return $this->maxSheetCount;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function setMaxSheetCount($maxSheetCount) {
-		$this->maxSheetCount = $maxSheetCount;
-		$this->queryParameters["MaxSheetCount"]=$maxSheetCount;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function getEndPage() {
-		return $this->endPage;
-	}
+    public function getTgtUri()
+    {
+        return $this->tgtUri;
+    }
 
-	public function setEndPage($endPage) {
-		$this->endPage = $endPage;
-		$this->queryParameters["EndPage"]=$endPage;
-	}
+    public function setTgtUri($tgtUri)
+    {
+        $this->tgtUri = $tgtUri;
+        $this->queryParameters["TgtUri"] = $tgtUri;
+    }
 
-	public function getSheetOnePage() {
-		return $this->sheetOnePage;
-	}
-
-	public function setSheetOnePage($sheetOnePage) {
-		$this->sheetOnePage = $sheetOnePage;
-		$this->queryParameters["SheetOnePage"]=$sheetOnePage;
-	}
-
-	public function getPassword() {
-		return $this->password;
-	}
-
-	public function setPassword($password) {
-		$this->password = $password;
-		$this->queryParameters["Password"]=$password;
-	}
-
-	public function getStartPage() {
-		return $this->startPage;
-	}
-
-	public function setStartPage($startPage) {
-		$this->startPage = $startPage;
-		$this->queryParameters["StartPage"]=$startPage;
-	}
-
-	public function getMaxSheetCol() {
-		return $this->maxSheetCol;
-	}
-
-	public function setMaxSheetCol($maxSheetCol) {
-		$this->maxSheetCol = $maxSheetCol;
-		$this->queryParameters["MaxSheetCol"]=$maxSheetCol;
-	}
-
-	public function getTgtType() {
-		return $this->tgtType;
-	}
-
-	public function setTgtType($tgtType) {
-		$this->tgtType = $tgtType;
-		$this->queryParameters["TgtType"]=$tgtType;
-	}
-
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
-
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
-
-	public function getTgtUri() {
-		return $this->tgtUri;
-	}
-
-	public function setTgtUri($tgtUri) {
-		$this->tgtUri = $tgtUri;
-		$this->queryParameters["TgtUri"]=$tgtUri;
-	}
-	
 }

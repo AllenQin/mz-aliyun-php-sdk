@@ -19,56 +19,63 @@
  */
 namespace imm\Request\V20170906;
 
-class DeleteFaceSearchImageByIdRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeleteFaceSearchImageByIdRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeleteFaceSearchImageById", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $imageId;
+    private $project;
+    private $groupName;
+    private $user;
 
-	private  $imageId;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeleteFaceSearchImageById", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getImageId()
+    {
+        return $this->imageId;
+    }
 
-	private  $groupName;
+    public function setImageId($imageId)
+    {
+        $this->imageId = $imageId;
+        $this->queryParameters["ImageId"] = $imageId;
+    }
 
-	private  $user;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getImageId() {
-		return $this->imageId;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setImageId($imageId) {
-		$this->imageId = $imageId;
-		$this->queryParameters["ImageId"]=$imageId;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getUser()
+    {
+        return $this->user;
+    }
 
-	public function getGroupName() {
-		return $this->groupName;
-	}
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $this->queryParameters["User"] = $user;
+    }
 
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
-
-	public function getUser() {
-		return $this->user;
-	}
-
-	public function setUser($user) {
-		$this->user = $user;
-		$this->queryParameters["User"]=$user;
-	}
-	
 }

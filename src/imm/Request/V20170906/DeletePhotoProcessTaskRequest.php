@@ -19,34 +19,39 @@
  */
 namespace imm\Request\V20170906;
 
-class DeletePhotoProcessTaskRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeletePhotoProcessTaskRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeletePhotoProcessTask", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $taskId;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeletePhotoProcessTask", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $taskId;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getTaskId()
+    {
+        return $this->taskId;
+    }
 
-	public function getTaskId() {
-		return $this->taskId;
-	}
+    public function setTaskId($taskId)
+    {
+        $this->taskId = $taskId;
+        $this->queryParameters["TaskId"] = $taskId;
+    }
 
-	public function setTaskId($taskId) {
-		$this->taskId = $taskId;
-		$this->queryParameters["TaskId"]=$taskId;
-	}
-	
 }

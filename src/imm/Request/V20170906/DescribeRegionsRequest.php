@@ -19,12 +19,14 @@
  */
 namespace imm\Request\V20170906;
 
-class DescribeRegionsRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DescribeRegionsRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DescribeRegions", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
-	
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DescribeRegions", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
+
 }

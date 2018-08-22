@@ -19,45 +19,51 @@
  */
 namespace imm\Request\V20170906;
 
-class DeleteTagByUrlRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeleteTagByUrlRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeleteTagByUrl", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $setId;
+    private $srcUri;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeleteTagByUrl", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $setId;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $srcUri;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function getSetId() {
-		return $this->setId;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
-
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
-	
 }

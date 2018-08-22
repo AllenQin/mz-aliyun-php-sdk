@@ -19,23 +19,27 @@
  */
 namespace imm\Request\V20170906;
 
-class CreateTagSetRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class CreateTagSetRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "CreateTagSet", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "CreateTagSet", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-	
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
+
 }

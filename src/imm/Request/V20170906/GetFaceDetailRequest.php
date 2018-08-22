@@ -19,45 +19,51 @@
  */
 namespace imm\Request\V20170906;
 
-class GetFaceDetailRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class GetFaceDetailRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "GetFaceDetail", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $setId;
+    private $faceId;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "GetFaceDetail", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $setId;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $faceId;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function getSetId() {
-		return $this->setId;
-	}
+    public function getFaceId()
+    {
+        return $this->faceId;
+    }
 
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
+    public function setFaceId($faceId)
+    {
+        $this->faceId = $faceId;
+        $this->queryParameters["FaceId"] = $faceId;
+    }
 
-	public function getFaceId() {
-		return $this->faceId;
-	}
-
-	public function setFaceId($faceId) {
-		$this->faceId = $faceId;
-		$this->queryParameters["FaceId"]=$faceId;
-	}
-	
 }

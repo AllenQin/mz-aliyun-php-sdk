@@ -19,34 +19,39 @@
  */
 namespace imm\Request\V20170906;
 
-class ListFaceSetsRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class ListFaceSetsRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "ListFaceSets", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $marker;
+    private $project;
 
-	private  $marker;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "ListFaceSets", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getMarker()
+    {
+        return $this->marker;
+    }
 
-	public function getMarker() {
-		return $this->marker;
-	}
+    public function setMarker($marker)
+    {
+        $this->marker = $marker;
+        $this->queryParameters["Marker"] = $marker;
+    }
 
-	public function setMarker($marker) {
-		$this->marker = $marker;
-		$this->queryParameters["Marker"]=$marker;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-	
 }

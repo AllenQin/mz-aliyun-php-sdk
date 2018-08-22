@@ -19,34 +19,39 @@
  */
 namespace imm\Request\V20170906;
 
-class DetectFaceRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DetectFaceRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DetectFace", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $srcUris;
+    private $project;
 
-	private  $srcUris;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DetectFace", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getSrcUris()
+    {
+        return $this->srcUris;
+    }
 
-	public function getSrcUris() {
-		return $this->srcUris;
-	}
+    public function setSrcUris($srcUris)
+    {
+        $this->srcUris = $srcUris;
+        $this->queryParameters["SrcUris"] = $srcUris;
+    }
 
-	public function setSrcUris($srcUris) {
-		$this->srcUris = $srcUris;
-		$this->queryParameters["SrcUris"]=$srcUris;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-	
 }

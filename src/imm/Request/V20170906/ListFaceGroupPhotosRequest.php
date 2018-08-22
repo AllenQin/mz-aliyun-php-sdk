@@ -19,67 +19,75 @@
  */
 namespace imm\Request\V20170906;
 
-class ListFaceGroupPhotosRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class ListFaceGroupPhotosRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "ListFaceGroupPhotos", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $maxKeys;
+    private $marker;
+    private $groupId;
+    private $project;
+    private $setId;
 
-	private  $maxKeys;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "ListFaceGroupPhotos", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $marker;
+    public function getMaxKeys()
+    {
+        return $this->maxKeys;
+    }
 
-	private  $groupId;
+    public function setMaxKeys($maxKeys)
+    {
+        $this->maxKeys = $maxKeys;
+        $this->queryParameters["MaxKeys"] = $maxKeys;
+    }
 
-	private  $project;
+    public function getMarker()
+    {
+        return $this->marker;
+    }
 
-	private  $setId;
+    public function setMarker($marker)
+    {
+        $this->marker = $marker;
+        $this->queryParameters["Marker"] = $marker;
+    }
 
-	public function getMaxKeys() {
-		return $this->maxKeys;
-	}
+    public function getGroupId()
+    {
+        return $this->groupId;
+    }
 
-	public function setMaxKeys($maxKeys) {
-		$this->maxKeys = $maxKeys;
-		$this->queryParameters["MaxKeys"]=$maxKeys;
-	}
+    public function setGroupId($groupId)
+    {
+        $this->groupId = $groupId;
+        $this->queryParameters["GroupId"] = $groupId;
+    }
 
-	public function getMarker() {
-		return $this->marker;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function setMarker($marker) {
-		$this->marker = $marker;
-		$this->queryParameters["Marker"]=$marker;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getGroupId() {
-		return $this->groupId;
-	}
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function setGroupId($groupId) {
-		$this->groupId = $groupId;
-		$this->queryParameters["GroupId"]=$groupId;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
-
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-
-	public function getSetId() {
-		return $this->setId;
-	}
-
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
-	
 }

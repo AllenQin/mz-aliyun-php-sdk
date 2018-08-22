@@ -19,67 +19,75 @@
  */
 namespace imm\Request\V20170906;
 
-class ListFaceSearchGroupImagesRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class ListFaceSearchGroupImagesRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "ListFaceSearchGroupImages", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $maxKeys;
+    private $marker;
+    private $project;
+    private $groupName;
+    private $user;
 
-	private  $maxKeys;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "ListFaceSearchGroupImages", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $marker;
+    public function getMaxKeys()
+    {
+        return $this->maxKeys;
+    }
 
-	private  $project;
+    public function setMaxKeys($maxKeys)
+    {
+        $this->maxKeys = $maxKeys;
+        $this->queryParameters["MaxKeys"] = $maxKeys;
+    }
 
-	private  $groupName;
+    public function getMarker()
+    {
+        return $this->marker;
+    }
 
-	private  $user;
+    public function setMarker($marker)
+    {
+        $this->marker = $marker;
+        $this->queryParameters["Marker"] = $marker;
+    }
 
-	public function getMaxKeys() {
-		return $this->maxKeys;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function setMaxKeys($maxKeys) {
-		$this->maxKeys = $maxKeys;
-		$this->queryParameters["MaxKeys"]=$maxKeys;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getMarker() {
-		return $this->marker;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function setMarker($marker) {
-		$this->marker = $marker;
-		$this->queryParameters["Marker"]=$marker;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getUser()
+    {
+        return $this->user;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $this->queryParameters["User"] = $user;
+    }
 
-	public function getGroupName() {
-		return $this->groupName;
-	}
-
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
-
-	public function getUser() {
-		return $this->user;
-	}
-
-	public function setUser($user) {
-		$this->user = $user;
-		$this->queryParameters["User"]=$user;
-	}
-	
 }

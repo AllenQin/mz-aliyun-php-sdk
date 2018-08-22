@@ -19,89 +19,99 @@
  */
 namespace imm\Request\V20170906;
 
-class PhotoProcessRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class PhotoProcessRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "PhotoProcess", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $notifyTopicName;
+    private $notifyEndpoint;
+    private $project;
+    private $externalID;
+    private $srcUri;
+    private $style;
+    private $tgtUri;
 
-	private  $notifyTopicName;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "PhotoProcess", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $notifyEndpoint;
+    public function getNotifyTopicName()
+    {
+        return $this->notifyTopicName;
+    }
 
-	private  $project;
+    public function setNotifyTopicName($notifyTopicName)
+    {
+        $this->notifyTopicName = $notifyTopicName;
+        $this->queryParameters["NotifyTopicName"] = $notifyTopicName;
+    }
 
-	private  $externalID;
+    public function getNotifyEndpoint()
+    {
+        return $this->notifyEndpoint;
+    }
 
-	private  $srcUri;
+    public function setNotifyEndpoint($notifyEndpoint)
+    {
+        $this->notifyEndpoint = $notifyEndpoint;
+        $this->queryParameters["NotifyEndpoint"] = $notifyEndpoint;
+    }
 
-	private  $style;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $tgtUri;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getNotifyTopicName() {
-		return $this->notifyTopicName;
-	}
+    public function getExternalID()
+    {
+        return $this->externalID;
+    }
 
-	public function setNotifyTopicName($notifyTopicName) {
-		$this->notifyTopicName = $notifyTopicName;
-		$this->queryParameters["NotifyTopicName"]=$notifyTopicName;
-	}
+    public function setExternalID($externalID)
+    {
+        $this->externalID = $externalID;
+        $this->queryParameters["ExternalID"] = $externalID;
+    }
 
-	public function getNotifyEndpoint() {
-		return $this->notifyEndpoint;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function setNotifyEndpoint($notifyEndpoint) {
-		$this->notifyEndpoint = $notifyEndpoint;
-		$this->queryParameters["NotifyEndpoint"]=$notifyEndpoint;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getStyle()
+    {
+        return $this->style;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setStyle($style)
+    {
+        $this->style = $style;
+        $this->queryParameters["Style"] = $style;
+    }
 
-	public function getExternalID() {
-		return $this->externalID;
-	}
+    public function getTgtUri()
+    {
+        return $this->tgtUri;
+    }
 
-	public function setExternalID($externalID) {
-		$this->externalID = $externalID;
-		$this->queryParameters["ExternalID"]=$externalID;
-	}
+    public function setTgtUri($tgtUri)
+    {
+        $this->tgtUri = $tgtUri;
+        $this->queryParameters["TgtUri"] = $tgtUri;
+    }
 
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
-
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
-
-	public function getStyle() {
-		return $this->style;
-	}
-
-	public function setStyle($style) {
-		$this->style = $style;
-		$this->queryParameters["Style"]=$style;
-	}
-
-	public function getTgtUri() {
-		return $this->tgtUri;
-	}
-
-	public function setTgtUri($tgtUri) {
-		$this->tgtUri = $tgtUri;
-		$this->queryParameters["TgtUri"]=$tgtUri;
-	}
-	
 }

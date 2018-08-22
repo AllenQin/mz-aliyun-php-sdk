@@ -19,89 +19,99 @@
  */
 namespace imm\Request\V20170906;
 
-class FaceRegistRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class FaceRegistRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "FaceRegist", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $chooseBiggestFace;
+    private $isQualityLimit;
+    private $project;
+    private $srcUri;
+    private $registerCheckLevel;
+    private $groupName;
+    private $user;
 
-	private  $chooseBiggestFace;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "FaceRegist", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $isQualityLimit;
+    public function getChooseBiggestFace()
+    {
+        return $this->chooseBiggestFace;
+    }
 
-	private  $project;
+    public function setChooseBiggestFace($chooseBiggestFace)
+    {
+        $this->chooseBiggestFace = $chooseBiggestFace;
+        $this->queryParameters["ChooseBiggestFace"] = $chooseBiggestFace;
+    }
 
-	private  $srcUri;
+    public function getIsQualityLimit()
+    {
+        return $this->isQualityLimit;
+    }
 
-	private  $registerCheckLevel;
+    public function setIsQualityLimit($isQualityLimit)
+    {
+        $this->isQualityLimit = $isQualityLimit;
+        $this->queryParameters["IsQualityLimit"] = $isQualityLimit;
+    }
 
-	private  $groupName;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $user;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getChooseBiggestFace() {
-		return $this->chooseBiggestFace;
-	}
+    public function getSrcUri()
+    {
+        return $this->srcUri;
+    }
 
-	public function setChooseBiggestFace($chooseBiggestFace) {
-		$this->chooseBiggestFace = $chooseBiggestFace;
-		$this->queryParameters["ChooseBiggestFace"]=$chooseBiggestFace;
-	}
+    public function setSrcUri($srcUri)
+    {
+        $this->srcUri = $srcUri;
+        $this->queryParameters["SrcUri"] = $srcUri;
+    }
 
-	public function getIsQualityLimit() {
-		return $this->isQualityLimit;
-	}
+    public function getRegisterCheckLevel()
+    {
+        return $this->registerCheckLevel;
+    }
 
-	public function setIsQualityLimit($isQualityLimit) {
-		$this->isQualityLimit = $isQualityLimit;
-		$this->queryParameters["IsQualityLimit"]=$isQualityLimit;
-	}
+    public function setRegisterCheckLevel($registerCheckLevel)
+    {
+        $this->registerCheckLevel = $registerCheckLevel;
+        $this->queryParameters["RegisterCheckLevel"] = $registerCheckLevel;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function getSrcUri() {
-		return $this->srcUri;
-	}
+    public function getUser()
+    {
+        return $this->user;
+    }
 
-	public function setSrcUri($srcUri) {
-		$this->srcUri = $srcUri;
-		$this->queryParameters["SrcUri"]=$srcUri;
-	}
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $this->queryParameters["User"] = $user;
+    }
 
-	public function getRegisterCheckLevel() {
-		return $this->registerCheckLevel;
-	}
-
-	public function setRegisterCheckLevel($registerCheckLevel) {
-		$this->registerCheckLevel = $registerCheckLevel;
-		$this->queryParameters["RegisterCheckLevel"]=$registerCheckLevel;
-	}
-
-	public function getGroupName() {
-		return $this->groupName;
-	}
-
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
-
-	public function getUser() {
-		return $this->user;
-	}
-
-	public function setUser($user) {
-		$this->user = $user;
-		$this->queryParameters["User"]=$user;
-	}
-	
 }

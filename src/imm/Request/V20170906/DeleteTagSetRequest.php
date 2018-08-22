@@ -19,56 +19,63 @@
  */
 namespace imm\Request\V20170906;
 
-class DeleteTagSetRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeleteTagSetRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeleteTagSet", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $lazyMode;
+    private $project;
+    private $setId;
+    private $checkEmpty;
 
-	private  $lazyMode;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeleteTagSet", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getLazyMode()
+    {
+        return $this->lazyMode;
+    }
 
-	private  $setId;
+    public function setLazyMode($lazyMode)
+    {
+        $this->lazyMode = $lazyMode;
+        $this->queryParameters["LazyMode"] = $lazyMode;
+    }
 
-	private  $checkEmpty;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getLazyMode() {
-		return $this->lazyMode;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setLazyMode($lazyMode) {
-		$this->lazyMode = $lazyMode;
-		$this->queryParameters["LazyMode"]=$lazyMode;
-	}
+    public function getSetId()
+    {
+        return $this->setId;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setSetId($setId)
+    {
+        $this->setId = $setId;
+        $this->queryParameters["SetId"] = $setId;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getCheckEmpty()
+    {
+        return $this->checkEmpty;
+    }
 
-	public function getSetId() {
-		return $this->setId;
-	}
+    public function setCheckEmpty($checkEmpty)
+    {
+        $this->checkEmpty = $checkEmpty;
+        $this->queryParameters["CheckEmpty"] = $checkEmpty;
+    }
 
-	public function setSetId($setId) {
-		$this->setId = $setId;
-		$this->queryParameters["SetId"]=$setId;
-	}
-
-	public function getCheckEmpty() {
-		return $this->checkEmpty;
-	}
-
-	public function setCheckEmpty($checkEmpty) {
-		$this->checkEmpty = $checkEmpty;
-		$this->queryParameters["CheckEmpty"]=$checkEmpty;
-	}
-	
 }

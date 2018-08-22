@@ -19,34 +19,39 @@
  */
 namespace imm\Request\V20170906;
 
-class GetFaceJobRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class GetFaceJobRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "GetFaceJob", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $jobId;
+    private $project;
 
-	private  $jobId;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "GetFaceJob", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $project;
+    public function getJobId()
+    {
+        return $this->jobId;
+    }
 
-	public function getJobId() {
-		return $this->jobId;
-	}
+    public function setJobId($jobId)
+    {
+        $this->jobId = $jobId;
+        $this->queryParameters["JobId"] = $jobId;
+    }
 
-	public function setJobId($jobId) {
-		$this->jobId = $jobId;
-		$this->queryParameters["JobId"]=$jobId;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-	
 }

@@ -19,56 +19,63 @@
  */
 namespace imm\Request\V20170906;
 
-class ListFaceSearchGroupUsersRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class ListFaceSearchGroupUsersRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "ListFaceSearchGroupUsers", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $maxKeys;
+    private $marker;
+    private $project;
+    private $groupName;
 
-	private  $maxKeys;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "ListFaceSearchGroupUsers", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $marker;
+    public function getMaxKeys()
+    {
+        return $this->maxKeys;
+    }
 
-	private  $project;
+    public function setMaxKeys($maxKeys)
+    {
+        $this->maxKeys = $maxKeys;
+        $this->queryParameters["MaxKeys"] = $maxKeys;
+    }
 
-	private  $groupName;
+    public function getMarker()
+    {
+        return $this->marker;
+    }
 
-	public function getMaxKeys() {
-		return $this->maxKeys;
-	}
+    public function setMarker($marker)
+    {
+        $this->marker = $marker;
+        $this->queryParameters["Marker"] = $marker;
+    }
 
-	public function setMaxKeys($maxKeys) {
-		$this->maxKeys = $maxKeys;
-		$this->queryParameters["MaxKeys"]=$maxKeys;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getMarker() {
-		return $this->marker;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setMarker($marker) {
-		$this->marker = $marker;
-		$this->queryParameters["Marker"]=$marker;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-
-	public function getGroupName() {
-		return $this->groupName;
-	}
-
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
-	
 }

@@ -19,45 +19,51 @@
  */
 namespace imm\Request\V20170906;
 
-class DeleteFaceSearchUserRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class DeleteFaceSearchUserRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "DeleteFaceSearchUser", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $groupName;
+    private $user;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "DeleteFaceSearchUser", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $groupName;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	private  $user;
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function getGroupName() {
-		return $this->groupName;
-	}
+    public function getUser()
+    {
+        return $this->user;
+    }
 
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $this->queryParameters["User"] = $user;
+    }
 
-	public function getUser() {
-		return $this->user;
-	}
-
-	public function setUser($user) {
-		$this->user = $user;
-		$this->queryParameters["User"]=$user;
-	}
-	
 }

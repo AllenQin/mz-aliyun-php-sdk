@@ -19,34 +19,39 @@
  */
 namespace imm\Request\V20170906;
 
-class GetFaceSearchGroupRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class GetFaceSearchGroupRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "GetFaceSearchGroup", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $project;
+    private $groupName;
 
-	private  $project;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "GetFaceSearchGroup", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $groupName;
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getProject() {
-		return $this->project;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
+    public function getGroupName()
+    {
+        return $this->groupName;
+    }
 
-	public function getGroupName() {
-		return $this->groupName;
-	}
+    public function setGroupName($groupName)
+    {
+        $this->groupName = $groupName;
+        $this->queryParameters["GroupName"] = $groupName;
+    }
 
-	public function setGroupName($groupName) {
-		$this->groupName = $groupName;
-		$this->queryParameters["GroupName"]=$groupName;
-	}
-	
 }

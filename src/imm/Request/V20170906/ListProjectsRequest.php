@@ -19,34 +19,39 @@
  */
 namespace imm\Request\V20170906;
 
-class ListProjectsRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class ListProjectsRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "ListProjects", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $maxKeys;
+    private $marker;
 
-	private  $maxKeys;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "ListProjects", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $marker;
+    public function getMaxKeys()
+    {
+        return $this->maxKeys;
+    }
 
-	public function getMaxKeys() {
-		return $this->maxKeys;
-	}
+    public function setMaxKeys($maxKeys)
+    {
+        $this->maxKeys = $maxKeys;
+        $this->queryParameters["MaxKeys"] = $maxKeys;
+    }
 
-	public function setMaxKeys($maxKeys) {
-		$this->maxKeys = $maxKeys;
-		$this->queryParameters["MaxKeys"]=$maxKeys;
-	}
+    public function getMarker()
+    {
+        return $this->marker;
+    }
 
-	public function getMarker() {
-		return $this->marker;
-	}
+    public function setMarker($marker)
+    {
+        $this->marker = $marker;
+        $this->queryParameters["Marker"] = $marker;
+    }
 
-	public function setMarker($marker) {
-		$this->marker = $marker;
-		$this->queryParameters["Marker"]=$marker;
-	}
-	
 }

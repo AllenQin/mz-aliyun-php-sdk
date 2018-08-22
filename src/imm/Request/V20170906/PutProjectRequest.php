@@ -19,78 +19,87 @@
  */
 namespace imm\Request\V20170906;
 
-class PutProjectRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class PutProjectRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("imm", "2017-09-06", "PutProject", "imm", "openAPI");
-		$this->setMethod("POST");
-	}
+    private $indexers;
+    private $cU;
+    private $engines;
+    private $serviceRole;
+    private $project;
+    private $type;
 
-	private  $indexers;
+    function __construct()
+    {
+        parent::__construct("imm", "2017-09-06", "PutProject", "imm", "openAPI");
+        $this->setMethod("POST");
+    }
 
-	private  $cU;
+    public function getIndexers()
+    {
+        return $this->indexers;
+    }
 
-	private  $engines;
+    public function setIndexers($indexers)
+    {
+        $this->indexers = $indexers;
+        $this->queryParameters["Indexers"] = $indexers;
+    }
 
-	private  $serviceRole;
+    public function getCU()
+    {
+        return $this->cU;
+    }
 
-	private  $project;
+    public function setCU($cU)
+    {
+        $this->cU = $cU;
+        $this->queryParameters["CU"] = $cU;
+    }
 
-	private  $type;
+    public function getEngines()
+    {
+        return $this->engines;
+    }
 
-	public function getIndexers() {
-		return $this->indexers;
-	}
+    public function setEngines($engines)
+    {
+        $this->engines = $engines;
+        $this->queryParameters["Engines"] = $engines;
+    }
 
-	public function setIndexers($indexers) {
-		$this->indexers = $indexers;
-		$this->queryParameters["Indexers"]=$indexers;
-	}
+    public function getServiceRole()
+    {
+        return $this->serviceRole;
+    }
 
-	public function getCU() {
-		return $this->cU;
-	}
+    public function setServiceRole($serviceRole)
+    {
+        $this->serviceRole = $serviceRole;
+        $this->queryParameters["ServiceRole"] = $serviceRole;
+    }
 
-	public function setCU($cU) {
-		$this->cU = $cU;
-		$this->queryParameters["CU"]=$cU;
-	}
+    public function getProject()
+    {
+        return $this->project;
+    }
 
-	public function getEngines() {
-		return $this->engines;
-	}
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->queryParameters["Project"] = $project;
+    }
 
-	public function setEngines($engines) {
-		$this->engines = $engines;
-		$this->queryParameters["Engines"]=$engines;
-	}
+    public function getType()
+    {
+        return $this->type;
+    }
 
-	public function getServiceRole() {
-		return $this->serviceRole;
-	}
+    public function setType($type)
+    {
+        $this->type = $type;
+        $this->queryParameters["Type"] = $type;
+    }
 
-	public function setServiceRole($serviceRole) {
-		$this->serviceRole = $serviceRole;
-		$this->queryParameters["ServiceRole"]=$serviceRole;
-	}
-
-	public function getProject() {
-		return $this->project;
-	}
-
-	public function setProject($project) {
-		$this->project = $project;
-		$this->queryParameters["Project"]=$project;
-	}
-
-	public function getType() {
-		return $this->type;
-	}
-
-	public function setType($type) {
-		$this->type = $type;
-		$this->queryParameters["Type"]=$type;
-	}
-	
 }
