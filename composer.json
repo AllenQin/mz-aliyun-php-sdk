@@ -12,7 +12,8 @@
     "autoload": {
         "psr-4": {
             "imm\\": "src/imm",
-            "Sts\\" : "src/Sts"
+            "Sts\\" : "src/Sts",
+            "live\\" : "src/live"
         }
     },
     "autoload-dev": {
