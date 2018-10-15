@@ -19,7 +19,7 @@
  */
 namespace Sts\Request\V20150401;
 
-use Aliyun\Core\RpcAcsRequest;
+use MZ\Aliyun\Core\RpcAcsRequest;
 
 class GetCallerIdentityRequest extends RpcAcsRequest
 {

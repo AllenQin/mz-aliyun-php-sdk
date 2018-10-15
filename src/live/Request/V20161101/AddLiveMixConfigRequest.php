@@ -19,7 +19,7 @@
  */
 namespace live\Request\V20161101;
 
-use Aliyun\Core\RpcAcsRequest;
+use MZ\Aliyun\Core\RpcAcsRequest;
 
 class AddLiveMixConfigRequest extends RpcacsRequest
 {

@@ -11,6 +11,7 @@
     },
     "autoload": {
         "psr-4": {
+            "MZ\\Aliyun\\Core\\":"src/core",
             "imm\\": "src/imm",
             "Sts\\" : "src/Sts",
             "live\\" : "src/live"

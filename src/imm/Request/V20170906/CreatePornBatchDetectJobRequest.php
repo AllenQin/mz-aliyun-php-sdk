@@ -19,7 +19,7 @@
  */
 namespace imm\Request\V20170906;
 
-use Aliyun\Core\RpcAcsRequest;
+use MZ\Aliyun\Core\RpcAcsRequest;
 
 class CreatePornBatchDetectJobRequest extends RpcAcsRequest
 {
