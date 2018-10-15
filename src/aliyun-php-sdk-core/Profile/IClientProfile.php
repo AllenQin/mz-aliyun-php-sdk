@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Profile;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,11 +19,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-abstract class AbstractCredential
+interface IClientProfile
 {
-    abstract public function getAccessKeyId();
+    public function getSigner();
 
-    abstract public function getAccessSecret();
+    public function getRegionId();
 
-    abstract public function getSecurityToken();
+    public function getFormat();
+
+    public function getCredential();
+
+    public function isRamRoleArn();
+
+    public function isEcsRamRole();
 }

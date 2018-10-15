@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MZ\\Aliyun\\Core\\":"src/core",
+            "MZ\\Aliyun\\Core\\":"src/aliyun-php-sdk-core",
             "imm\\": "src/imm",
             "Sts\\" : "src/Sts",
             "live\\" : "src/live"

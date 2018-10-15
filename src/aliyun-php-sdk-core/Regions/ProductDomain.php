@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Regions;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,47 +19,34 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class ClientException extends Exception
+class ProductDomain
 {
-    private $errorCode;
-    private $errorMessage;
-    private $errorType;
+    private $productName;
+    private $domainName;
 
-    public function __construct($errorMessage, $errorCode)
+    public function __construct($product, $domain)
     {
-        parent::__construct($errorMessage);
-        $this->errorMessage = $errorMessage;
-        $this->errorCode = $errorCode;
-        $this->setErrorType("Client");
+        $this->productName = $product;
+        $this->domainName = $domain;
     }
 
-    public function getErrorCode()
+    public function getProductName()
     {
-        return $this->errorCode;
+        return $this->productName;
     }
 
-    public function setErrorCode($errorCode)
+    public function setProductName($productName)
     {
-        $this->errorCode = $errorCode;
+        $this->productName = $productName;
     }
 
-    public function getErrorMessage()
+    public function getDomainName()
     {
-        return $this->errorMessage;
+        return $this->domainName;
     }
 
-    public function setErrorMessage($errorMessage)
+    public function setDomainName($domainName)
     {
-        $this->errorMessage = $errorMessage;
-    }
-
-    public function getErrorType()
-    {
-        return $this->errorType;
-    }
-
-    public function setErrorType($errorType)
-    {
-        $this->errorType = $errorType;
+        $this->domainName = $domainName;
     }
 }

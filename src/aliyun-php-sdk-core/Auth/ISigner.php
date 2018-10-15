@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Auth;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,20 +19,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class ShaHmac256Signer implements ISigner
+interface ISigner
 {
-    public function signString($source, $accessSecret)
-    {
-        return base64_encode(hash_hmac('sha256', $source, $accessSecret, true));
-    }
+    public function getSignatureMethod();
 
-    public function getSignatureMethod()
-    {
-        return "HMAC-SHA256";
-    }
+    public function getSignatureVersion();
 
-    public function getSignatureVersion()
-    {
-        return "1.0";
-    }
+    public function signString($source, $accessSecret);
 }

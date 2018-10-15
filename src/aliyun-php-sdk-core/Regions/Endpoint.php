@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Regions;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,28 +19,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class ServerException extends ClientException
+class Endpoint
 {
-    private $httpStatus;
-    private $requestId;
+    private $name;
+    private $regionIds;
+    private $productDomains;
 
-    public function __construct($errorMessage, $errorCode, $httpStatus, $requestId)
+    public function __construct($name, $regionIds, $productDomains)
     {
-        $messageStr = $errorCode . " " . $errorMessage . " HTTP Status: " . $httpStatus . " RequestID: " . $requestId;
-        parent::__construct($messageStr, $errorCode);
-        $this->setErrorMessage($errorMessage);
-        $this->setErrorType("Server");
-        $this->httpStatus = $httpStatus;
-        $this->requestId = $requestId;
+        $this->name = $name;
+        $this->regionIds = $regionIds;
+        $this->productDomains = $productDomains;
     }
 
-    public function getHttpStatus()
+    public function getName()
     {
-        return $this->httpStatus;
+        return $this->name;
     }
 
-    public function getRequestId()
+    public function setName($name)
     {
-        return $this->requestId;
+        $this->name = $name;
+    }
+
+    public function getRegionIds()
+    {
+        return $this->regionIds;
+    }
+
+    public function setRegionIds($regionIds)
+    {
+        $this->regionIds = $regionIds;
+    }
+
+    public function getProductDomains()
+    {
+        return $this->productDomains;
+    }
+
+    public function setProductDomains($productDomains)
+    {
+        $this->productDomains = $productDomains;
     }
 }

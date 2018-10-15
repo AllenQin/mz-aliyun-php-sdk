@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Auth;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,34 +19,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class ProductDomain
+abstract class AbstractCredential
 {
-    private $productName;
-    private $domainName;
+    abstract public function getAccessKeyId();
 
-    public function __construct($product, $domain)
-    {
-        $this->productName = $product;
-        $this->domainName = $domain;
-    }
+    abstract public function getAccessSecret();
 
-    public function getProductName()
-    {
-        return $this->productName;
-    }
-
-    public function setProductName($productName)
-    {
-        $this->productName = $productName;
-    }
-
-    public function getDomainName()
-    {
-        return $this->domainName;
-    }
-
-    public function setDomainName($domainName)
-    {
-        $this->domainName = $domainName;
-    }
+    abstract public function getSecurityToken();
 }

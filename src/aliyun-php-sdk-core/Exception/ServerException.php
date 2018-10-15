@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Exception;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,36 +19,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class HttpResponse
+class ServerException extends ClientException
 {
-    private $body;
-    private $status;
+    private $httpStatus;
+    private $requestId;
 
-    public function getBody()
+    public function __construct($errorMessage, $errorCode, $httpStatus, $requestId)
     {
-        return $this->body;
+        $messageStr = $errorCode . " " . $errorMessage . " HTTP Status: " . $httpStatus . " RequestID: " . $requestId;
+        parent::__construct($messageStr, $errorCode);
+        $this->setErrorMessage($errorMessage);
+        $this->setErrorType("Server");
+        $this->httpStatus = $httpStatus;
+        $this->requestId = $requestId;
     }
 
-    public function setBody($body)
+    public function getHttpStatus()
     {
-        $this->body = $body;
+        return $this->httpStatus;
     }
 
-    public function getStatus()
+    public function getRequestId()
     {
-        return $this->status;
-    }
-
-    public function setStatus($status)
-    {
-        $this->status = $status;
-    }
-
-    public function isSuccess()
-    {
-        if (200 <= $this->status && 300 > $this->status) {
-            return true;
-        }
-        return false;
+        return $this->requestId;
     }
 }

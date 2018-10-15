@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Auth;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,11 +19,37 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-interface ISigner
+class EcsRamRoleCredential extends AbstractCredential
 {
-    public function getSignatureMethod();
+    private $roleName;
 
-    public function getSignatureVersion();
+    public function __construct($roleName)
+    {
+        $this->roleName = $roleName;
+    }
 
-    public function signString($source, $accessSecret);
+    public function getAccessKeyId()
+    {
+        return null;
+    }
+
+    public function getAccessSecret()
+    {
+        return null;
+    }
+
+    public function getRoleName()
+    {
+        return $this->roleName;
+    }
+
+    public function setRoleName($roleName)
+    {
+        $this->roleName = $roleName;
+    }
+
+    public function getSecurityToken()
+    {
+        return null;
+    }
 }

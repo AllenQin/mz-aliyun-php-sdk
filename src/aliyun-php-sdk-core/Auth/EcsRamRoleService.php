@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Auth;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,32 +20,11 @@
  * under the License.
  */
 
-define("STS_PRODUCT_NAME", "Sts");
-define("STS_DOMAIN", "sts.aliyuncs.com");
-define("STS_VERSION", "2015-04-01");
-define("STS_ACTION", "AssumeRole");
-define("STS_REGION", "cn-hangzhou");
-define("ROLE_ARN_EXPIRE_TIME", 3600);
+define("ECS_ROLE_EXPIRE_TIME", 3600);
 
-class AssumeRoleRequest extends RpcAcsRequest
+class EcsRamRoleService
 {
-    function __construct($roleArn, $roleSessionName)
-    {
-        parent::__construct(STS_PRODUCT_NAME, STS_VERSION, STS_ACTION);
 
-        $this->queryParameters["RoleArn"] = $roleArn;
-        $this->queryParameters["RoleSessionName"] = $roleSessionName;
-        $this->queryParameters["DurationSeconds"] = ROLE_ARN_EXPIRE_TIME;
-        $this->setRegionId(ROLE_ARN_EXPIRE_TIME);
-        $this->setProtocol("https");
-
-        $this->setAcceptFormat("JSON");
-    }
-}
-
-class RamRoleArnService
-{
-    public static $serviceDomain = STS_DOMAIN;
     private $clientProfile;
     private $lastClearTime = null;
     private $sessionCredential = null;
@@ -58,7 +39,7 @@ class RamRoleArnService
         if ($this->lastClearTime != null && $this->sessionCredential != null) {
             $now = time();
             $elapsedTime = $now - $this->lastClearTime;
-            if ($elapsedTime <= ROLE_ARN_EXPIRE_TIME * 0.8) {
+            if ($elapsedTime <= ECS_ROLE_EXPIRE_TIME * 0.8) {
                 return $this->sessionCredential;
             }
         }
@@ -77,24 +58,27 @@ class RamRoleArnService
 
     private function assumeRole()
     {
-        $signer = $this->clientProfile->getSigner();
-        $ramRoleArnCredential = $this->clientProfile->getCredential();
+        $ecsRamRoleCredential = $this->clientProfile->getCredential();
 
-        $request = new AssumeRoleRequest($ramRoleArnCredential->getRoleArn(), $ramRoleArnCredential->getRoleSessionName());
+        $requestUrl = "http://100.100.100.200/latest/meta-data/ram/security-credentials/" . $ecsRamRoleCredential->getRoleName();
 
-        $requestUrl = $request->composeUrl($signer, $ramRoleArnCredential, self::$serviceDomain);
-
-        $httpResponse = HttpHelper::curl($requestUrl, $request->getMethod(), null, $request->getHeaders());
-
+        $httpResponse = HttpHelper::curl($requestUrl, "GET", null, null);
         if (!$httpResponse->isSuccess()) {
             return null;
         }
 
         $respObj = json_decode($httpResponse->getBody());
 
-        $sessionAccessKeyId = $respObj->Credentials->AccessKeyId;
-        $sessionAccessKeySecret = $respObj->Credentials->AccessKeySecret;
-        $securityToken = $respObj->Credentials->SecurityToken;
+        $code = $respObj->Code;
+        if ($code != "Success") {
+            return null;
+        }
+
+        $sessionAccessKeyId = $respObj->AccessKeyId;
+        $sessionAccessKeySecret = $respObj->AccessKeySecret;
+        $securityToken = $respObj->SecurityToken;
+
         return new Credential($sessionAccessKeyId, $sessionAccessKeySecret, $securityToken);
     }
+
 }

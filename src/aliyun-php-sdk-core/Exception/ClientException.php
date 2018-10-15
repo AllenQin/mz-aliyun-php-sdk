@@ -1,4 +1,6 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Exception;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,37 +19,47 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class EcsRamRoleCredential extends AbstractCredential
+class ClientException extends Exception
 {
-    private $roleName;
+    private $errorCode;
+    private $errorMessage;
+    private $errorType;
 
-    public function __construct($roleName)
+    public function __construct($errorMessage, $errorCode)
     {
-        $this->roleName = $roleName;
+        parent::__construct($errorMessage);
+        $this->errorMessage = $errorMessage;
+        $this->errorCode = $errorCode;
+        $this->setErrorType("Client");
     }
 
-    public function getAccessKeyId()
+    public function getErrorCode()
     {
-        return null;
+        return $this->errorCode;
     }
 
-    public function getAccessSecret()
+    public function setErrorCode($errorCode)
     {
-        return null;
+        $this->errorCode = $errorCode;
     }
 
-    public function getRoleName()
+    public function getErrorMessage()
     {
-        return $this->roleName;
+        return $this->errorMessage;
     }
 
-    public function setRoleName($roleName)
+    public function setErrorMessage($errorMessage)
     {
-        $this->roleName = $roleName;
+        $this->errorMessage = $errorMessage;
     }
 
-    public function getSecurityToken()
+    public function getErrorType()
     {
-        return null;
+        return $this->errorType;
+    }
+
+    public function setErrorType($errorType)
+    {
+        $this->errorType = $errorType;
     }
 }

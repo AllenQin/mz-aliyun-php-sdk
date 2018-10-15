@@ -1,4 +1,5 @@
-<?php namespace MZ\Aliyun\Core;
+<?php
+namespace MZ\Aliyun\Core\Http;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,46 +18,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class Endpoint
+class HttpResponse
 {
-    private $name;
-    private $regionIds;
-    private $productDomains;
+    private $body;
+    private $status;
 
-    public function __construct($name, $regionIds, $productDomains)
+    public function getBody()
     {
-        $this->name = $name;
-        $this->regionIds = $regionIds;
-        $this->productDomains = $productDomains;
+        return $this->body;
     }
 
-    public function getName()
+    public function setBody($body)
     {
-        return $this->name;
+        $this->body = $body;
     }
 
-    public function setName($name)
+    public function getStatus()
     {
-        $this->name = $name;
+        return $this->status;
     }
 
-    public function getRegionIds()
+    public function setStatus($status)
     {
-        return $this->regionIds;
+        $this->status = $status;
     }
 
-    public function setRegionIds($regionIds)
+    public function isSuccess()
     {
-        $this->regionIds = $regionIds;
-    }
-
-    public function getProductDomains()
-    {
-        return $this->productDomains;
-    }
-
-    public function setProductDomains($productDomains)
-    {
-        $this->productDomains = $productDomains;
+        if (200 <= $this->status && 300 > $this->status) {
+            return true;
+        }
+        return false;
     }
 }
