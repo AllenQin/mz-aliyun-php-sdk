@@ -19,6 +19,8 @@ namespace MZ\Aliyun\Core\Regions;
  * specific language governing permissions and limitations
  * under the License.
  */
+use MZ\Aliyun\Core\RpcAcsRequest;
+use MZ\Aliyun\Core\Http\HttpHelper;
 
 define("LOCATION_SERVICE_PRODUCT_NAME", "Location");
 define("LOCATION_SERVICE_DOMAIN", "location.aliyuncs.com");

@@ -20,6 +20,7 @@ namespace MZ\Aliyun\Core\Auth;
  * under the License.
  */
 
+use MZ\Aliyun\Core\Http\HttpHelper;
 define("ECS_ROLE_EXPIRE_TIME", 3600);
 
 class EcsRamRoleService

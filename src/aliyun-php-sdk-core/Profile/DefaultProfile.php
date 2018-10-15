@@ -1,6 +1,15 @@
 <?php
 namespace MZ\Aliyun\Core\Profile;
 
+use MZ\Aliyun\Core\Auth\Credential;
+use MZ\Aliyun\Core\Auth\RamRoleArnCredential;
+use MZ\Aliyun\Core\Auth\EcsRamRoleCredential;
+use MZ\Aliyun\Core\Regions\EndpointProvider;
+use MZ\Aliyun\Core\Regions\LocationService;
+use MZ\Aliyun\Core\Auth\ShaHmac1Signer;
+use MZ\Aliyun\Core\Regions\ProductDomain;
+use MZ\Aliyun\Core\Regions\Endpoint;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file

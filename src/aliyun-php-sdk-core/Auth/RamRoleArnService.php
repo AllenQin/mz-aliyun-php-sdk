@@ -19,6 +19,8 @@ namespace MZ\Aliyun\Core\Auth;
  * specific language governing permissions and limitations
  * under the License.
  */
+use MZ\Aliyun\Core\RpcAcsRequest;
+use MZ\Aliyun\Core\Http\HttpHelper;
 
 define("STS_PRODUCT_NAME", "Sts");
 define("STS_DOMAIN", "sts.aliyuncs.com");

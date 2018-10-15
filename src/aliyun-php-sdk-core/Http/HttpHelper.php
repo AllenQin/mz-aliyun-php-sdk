@@ -18,6 +18,8 @@ namespace MZ\Aliyun\Core\Http;
  * specific language governing permissions and limitations
  * under the License.
  */
+use MZ\Aliyun\Core\Exception\ClientException;
+
 class HttpHelper
 {
     public static $connectTimeout = 30;//30 second
