@@ -18,7 +18,6 @@
  * under the License.
  */
 include_once 'Autoloader/Autoloader.php';
-include_once 'Regions/EndpointConfig.php';
 include_once 'Regions/LocationService.php';
 
 //config sdk auto load path.
