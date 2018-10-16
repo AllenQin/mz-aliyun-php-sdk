@@ -23,58 +23,43 @@ use MZ\Aliyun\Core\RpcAcsRequest;
 
 class UpdateProjectRequest extends RpcAcsRequest
 {
-    private $newCU;
-    private $engines;
-    private $newServiceRole;
-    private $project;
+	function  __construct()
+	{
+		parent::__construct("imm", "2017-09-06", "UpdateProject", "imm", "openAPI");
+		$this->setMethod("POST");
+	}
 
-    function __construct()
-    {
-        parent::__construct("imm", "2017-09-06", "UpdateProject", "imm", "openAPI");
-        $this->setMethod("POST");
-    }
+	private  $newServiceRole;
 
-    public function getNewCU()
-    {
-        return $this->newCU;
-    }
+	private  $project;
 
-    public function setNewCU($cU)
-    {
-        $this->newCU = $cU;
-        $this->queryParameters["NewCU"] = $cU;
-    }
+	private  $newCU;
 
-    public function getEngines()
-    {
-        return $this->engines;
-    }
+	public function getNewServiceRole() {
+		return $this->newServiceRole;
+	}
 
-    public function setEngines($engines)
-    {
-        $this->engines = $engines;
-        $this->queryParameters["Engines"] = $engines;
-    }
+	public function setNewServiceRole($newServiceRole) {
+		$this->newServiceRole = $newServiceRole;
+		$this->queryParameters["NewServiceRole"]=$newServiceRole;
+	}
 
-    public function getServiceRole()
-    {
-        return $this->newServiceRole;
-    }
+	public function getProject() {
+		return $this->project;
+	}
 
-    public function setServiceRole($serviceRole)
-    {
-        $this->newServiceRole = $serviceRole;
-        $this->queryParameters["NewServiceRole"] = $serviceRole;
-    }
+	public function setProject($project) {
+		$this->project = $project;
+		$this->queryParameters["Project"]=$project;
+	}
 
-    public function getProject()
-    {
-        return $this->project;
-    }
+	public function getNewCU() {
+		return $this->newCU;
+	}
 
-    public function setProject($project)
-    {
-        $this->project = $project;
-        $this->queryParameters["Project"] = $project;
-    }
+	public function setNewCU($newCU) {
+		$this->newCU = $newCU;
+		$this->queryParameters["NewCU"]=$newCU;
+	}
+	
 }
