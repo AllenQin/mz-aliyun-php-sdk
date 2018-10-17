@@ -12,9 +12,9 @@
     "autoload": {
         "psr-4": {
             "MZ\\Aliyun\\Core\\":"src/aliyun-php-sdk-core",
-            "imm\\": "src/imm",
-            "Sts\\" : "src/Sts",
-            "live\\" : "src/live"
+            "Imm\\": "src/imm",
+            "Sts\\" : "src/sts",
+            "Live\\" : "src/live"
         }
     },
     "autoload-dev": {

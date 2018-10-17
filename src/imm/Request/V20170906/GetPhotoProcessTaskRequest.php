@@ -17,7 +17,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-namespace imm\Request\V20170906;
+namespace Imm\Request\V20170906;
 
 use MZ\Aliyun\Core\RpcAcsRequest;
 
