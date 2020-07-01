@@ -16,7 +16,8 @@
             "Sts\\" : "src/sts",
             "Live\\" : "src/live",
             "nlsCloudMeta\\" : "src/nls-cloud-meta",
-            "Cdn\\" : "src/cdn"
+            "Cdn\\" : "src/cdn",
+            "Afs\\": "src/afs"
         }
     },
     "autoload-dev": {
