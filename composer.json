@@ -1,6 +1,7 @@
 {
     "name": "allenqin/mz-aliyun-php-sdk",
     "description": "aliyun OSS openapi",
+    "license": "MIT",
     "authors": [
         {
             "name": "allenqin",
